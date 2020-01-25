@@ -77,7 +77,7 @@ Module.register("MMM-italian-words", {
 
             this.vocab_obj = this.vocab[index]
 
-            this.updateDom(700);
+            this.updateDom(1000);
         }
     },
 
