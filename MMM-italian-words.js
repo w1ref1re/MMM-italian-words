@@ -8,16 +8,23 @@ Module.register("MMM-italian-words", {
     start: function() {
         Log.log(this.name + " is started");
 
-        var data = this.sendSocketNotification("GET_FILE", {path: this.file("italian-words.json")})
+        this.sendSocketNotification("GET_FILE", {path: this.file("italian-words.json")});
 
-        Log.log(`${this.file("italian-words.json")}, ${data}`)
+        this.vocab = {};
+        this.vocab_length = 0;
+        this.vocab_str = "not initialized";
+
+        this.initialized = false;
+
+
+        /*Log.log(`${this.file("italian-words.json")}, ${data}`)
 
         this.vocab = JSON.parse(data);
         
         
         this.vocab_length = Object.getOwnPropertySymbols(this.vocab).length;
 
-        this.vocab_str = "empty string"
+        this.vocab_str = "empty string"*/
     },
 
     getDom: function() {
@@ -31,8 +38,34 @@ Module.register("MMM-italian-words", {
         wrapper.appendChild(p);
 		return wrapper;
     }, 
-    notificationReceived: function() {},
-    socketNotificationReceived: function() {},
+    notificationReceived: function(notification, payload) {
+        switch (notification) {
+
+            case "DOM_OBJECTS_CREATED":
+
+                var timer = setInterval(() => {
+                    this.updateVocab();
+                }, 3000);
+
+                break;
+        
+        }
+
+    },    
+    socketNotificationReceived: function(notification, payload) {
+        switch (notification) {
+
+            case "DATA":
+
+                this.vocab = JSON.parse(payload);
+                this.vocab_length = Object.getOwnPropertySymbols(this.vocab).length;
+
+                this.initialized = true;
+
+                break;
+        
+        }
+    },
 
    /* defaults: {
 
@@ -76,13 +109,16 @@ Module.register("MMM-italian-words", {
 
 
     updateVocab: function() {
-        var index = Math.floor(Math.random() * Math.floor(this.vocab_length));
+        if (this.initialized) {
 
-        vocab_object = this.vocab[index]
+            var index = Math.floor(Math.random() * Math.floor(this.vocab_length));
 
-        this.vocab_str = `${vocab_object["name"]}, ${vocab_object["genus"]}, ${vocab_object["translation"]}`;
+            vocab_object = this.vocab[index]
 
-        this.updateDom();
+            this.vocab_str = `${vocab_object["name"]}, ${vocab_object["genus"]}, ${vocab_object["translation"]}`;
+
+            this.updateDom();
+        }
     },*/
 
 });
