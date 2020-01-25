@@ -60,8 +60,8 @@ Module.register("MMM-italian-words", {
                 Log.log("data received");
                 Log.log(payload);
 
-                this.vocab = payload;
-                this.vocab_length = this.vocab["vocab"].length;
+                this.vocab = payload.vocab;
+                this.vocab_length = this.vocab.length;
 
                 this.initialized = true;
 
@@ -75,7 +75,7 @@ Module.register("MMM-italian-words", {
 
             var index = Math.floor(Math.random() * Math.floor(this.vocab_length));
 
-            vocab_object = this.vocab[index]
+            var vocab_object = this.vocab[index]
 
             this.vocab_str = `${vocab_object["name"]}, ${vocab_object["genus"]}, ${vocab_object["translation"]}`;
 
