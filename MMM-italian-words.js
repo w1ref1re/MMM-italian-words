@@ -4,7 +4,10 @@
 Module.register("MMM-italian-words", {
 
 
-    defaults: {},
+    defaults: {
+        update_interval: 20000,
+
+    },
     start: function() {
         Log.log(this.name + " is started");
 
@@ -32,7 +35,7 @@ Module.register("MMM-italian-words", {
         wrapper.className = "container";
 
         var p = document.createElement("p");
-        p.className = "medium bright";
+        p.className = "medium";
         p.innerText = this.vocab_str;
 
         wrapper.appendChild(p);
@@ -45,7 +48,7 @@ Module.register("MMM-italian-words", {
 
                 var timer = setInterval(() => {
                     this.updateVocab();
-                }, 12000);
+                }, this.config.update_interval);
 
                 break;
         
