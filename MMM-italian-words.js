@@ -57,15 +57,29 @@ Module.register("MMM-italian-words", {
 
             case "DATA":
 
+                Log.log("data received");
                 Log.log(payload);
 
                 this.vocab = JSON.parse(payload);
-                this.vocab_length = Object.getOwnPropertySymbols(this.vocab).length;
+                this.vocab_length = this.vocab["vocab"].length;
 
                 this.initialized = true;
 
                 break;
         
+        }
+    },
+
+    updateVocab: function() {
+        if (this.initialized) {
+
+            var index = Math.floor(Math.random() * Math.floor(this.vocab_length));
+
+            vocab_object = this.vocab[index]
+
+            this.vocab_str = `${vocab_object["name"]}, ${vocab_object["genus"]}, ${vocab_object["translation"]}`;
+
+            this.updateDom();
         }
     },
 
