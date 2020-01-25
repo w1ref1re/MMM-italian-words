@@ -36,7 +36,7 @@ Module.register("MMM-italian-words", {
 
         var p = document.createElement("p");
         p.className = "medium bright";
-        p.innerText = this.vocab_object.name;
+        p.innerText = this.vocab_obj.name;
 
         var p2 = document.createElement("p");
         p2.className = "medium";
