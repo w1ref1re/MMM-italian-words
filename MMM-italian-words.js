@@ -43,6 +43,7 @@ Module.register("MMM-italian-words", {
         p2.innerText = `${this.vocab_obj.genus}   ${this.vocab_obj.translation}`;
 
         wrapper.appendChild(p);
+        wrapper.appendChild(p2)
 		return wrapper;
     }, 
     notificationReceived: function(notification, payload) {
