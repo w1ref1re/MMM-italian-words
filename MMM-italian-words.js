@@ -8,7 +8,7 @@ Module.register("MMM-italian-words", {
     start: function() {
         Log.log(this.name + " is started");
 
-        data = this.sendSocketNotification("GET_FILE", {path: this.file("italian-words.json")})
+        var data = this.sendSocketNotification("GET_FILE", {path: this.file("italian-words.json")})
 
         this.vocab = JSON.parse(data);
         
