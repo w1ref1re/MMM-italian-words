@@ -19,15 +19,6 @@ Module.register("MMM-italian-words", {
 
         this.initialized = false;
 
-
-        /*Log.log(`${this.file("italian-words.json")}, ${data}`)
-
-        this.vocab = JSON.parse(data);
-        
-        
-        this.vocab_length = Object.getOwnPropertySymbols(this.vocab).length;
-
-        this.vocab_str = "empty string"*/
     },
 
     getDom: function() {
@@ -86,7 +77,7 @@ Module.register("MMM-italian-words", {
 
             this.vocab_obj = this.vocab[index]
 
-            this.updateDom();
+            this.updateDom(700);
         }
     },
 
