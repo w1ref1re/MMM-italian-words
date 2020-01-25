@@ -15,7 +15,7 @@ Module.register("MMM-italian-words", {
 
         this.vocab = {};
         this.vocab_length = 0;
-        this.vocab_obj = {};
+        this.vocab_obj = {name: "none", genus: "none", translation: "none"};
 
         this.initialized = false;
 
