@@ -18,7 +18,7 @@ module.exports = NodeHelper.create({
     readData: function(path) {
         fs.readFile(path, (err, data) => {
             if (err) throw err;
-            this.sendSocketNotification('DATA', data);
+            this.sendSocketNotification('DATA', JSON.parse(data));
         });
     },
 

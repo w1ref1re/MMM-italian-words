@@ -60,7 +60,7 @@ Module.register("MMM-italian-words", {
                 Log.log("data received");
                 Log.log(payload);
 
-                this.vocab = JSON.parse(payload);
+                this.vocab = payload;
                 this.vocab_length = this.vocab["vocab"].length;
 
                 this.initialized = true;
