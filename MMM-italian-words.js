@@ -45,7 +45,8 @@ Module.register("MMM-italian-words", {
         switch (notification) {
 
             case "DOM_OBJECTS_CREATED":
-
+                
+                this.updateVocab();
                 var timer = setInterval(() => {
                     this.updateVocab();
                 }, this.config.update_interval);
