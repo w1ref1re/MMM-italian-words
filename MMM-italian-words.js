@@ -32,7 +32,7 @@ Module.register("MMM-italian-words", {
         wrapper.className = "container";
 
         var p = document.createElement("p");
-        p.className("medium thin bright");
+        p.className = "medium thin bright";
         p.innerText(this.vocab_str);
 
         wrapper.appendChild(p);
