@@ -8,7 +8,11 @@ Module.register("MMM-italian-words", {
     start: function() {
         Log.log(this.name + " is started");
 
-        this.vocab = JSON.parse(this.file("italian-words.json"));
+        data = this.sendSocketNotification("GET_FILE", {path: this.file("italian-words.json")})
+
+        this.vocab = JSON.parse(data);
+        
+        
         this.vocab_length = Object.getOwnPropertySymbols(this.vocab).length;
 
         this.vocab_str = "empty string"
