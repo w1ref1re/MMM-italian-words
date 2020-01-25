@@ -5,13 +5,26 @@ Module.register("MMM-italian-words", {
 
 
     defaults: {},
-    start: function () {},
+    start: function() {
+        Log.log(this.name + " is started");
+
+        this.vocab = JSON.parse(this.file("italian-words.json"));
+        this.vocab_length = Object.getOwnPropertySymbols(this.vocab).length;
+
+        this.vocab_str = "empty string"
+    },
+
     getDom: function() {
-        var element = document.createElement("div")
-        element.className = "myContent"
-        element.innerHTML = "Hello, World!"
-        return element
-      },    
+        var wrapper = document.createElement("div");
+        wrapper.className = "container";
+
+        var p = document.createElement("p");
+        p.className("medium thin bright");
+        p.innerText(this.vocab_str);
+
+        wrapper.appendChild(p);
+		return wrapper;
+    }, 
     notificationReceived: function() {},
     socketNotificationReceived: function() {},
 
