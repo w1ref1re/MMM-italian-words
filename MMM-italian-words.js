@@ -36,11 +36,11 @@ Module.register("MMM-italian-words", {
 
         var p = document.createElement("p");
         p.className = "medium bright";
-        p.innerText = this.vocab_obj.name;
+        p.innerText = `${this.vocab_obj.name}   ${this.vocab_obj.genus}`;
 
         var p2 = document.createElement("p");
         p2.className = "medium";
-        p2.innerText = `${this.vocab_obj.genus}   ${this.vocab_obj.translation}`;
+        p2.innerText = `${this.vocab_obj.translation}`;
 
         wrapper.appendChild(p);
         wrapper.appendChild(p2)
