@@ -15,7 +15,7 @@ Module.register("MMM-italian-words", {
 
         this.vocab = {};
         this.vocab_length = 0;
-        this.vocab_str = "not initialized";
+        this.vocab_obj = {};
 
         this.initialized = false;
 
@@ -35,8 +35,12 @@ Module.register("MMM-italian-words", {
         wrapper.className = "container";
 
         var p = document.createElement("p");
-        p.className = "medium";
-        p.innerText = this.vocab_str;
+        p.className = "medium bright";
+        p.innerText = this.vocab_object.name;
+
+        var p2 = document.createElement("p");
+        p2.className = "medium";
+        p2.innerText = `${this.vocab_obj.genus}   ${this.vocab_obj.translation}`;
 
         wrapper.appendChild(p);
 		return wrapper;
@@ -79,9 +83,7 @@ Module.register("MMM-italian-words", {
 
             var index = Math.floor(Math.random() * Math.floor(this.vocab_length));
 
-            var vocab_object = this.vocab[index]
-
-            this.vocab_str = `${vocab_object["name"]}   ${vocab_object["genus"]}   ${vocab_object["translation"]}`;
+            this.vocab_obj = this.vocab[index]
 
             this.updateDom();
         }
