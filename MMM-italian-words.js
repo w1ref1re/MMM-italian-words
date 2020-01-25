@@ -10,6 +10,8 @@ Module.register("MMM-italian-words", {
 
         var data = this.sendSocketNotification("GET_FILE", {path: this.file("italian-words.json")})
 
+        Log.log(`${this.file("italian-words.json")}, ${data}`)
+
         this.vocab = JSON.parse(data);
         
         
