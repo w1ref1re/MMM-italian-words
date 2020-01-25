@@ -45,7 +45,7 @@ Module.register("MMM-italian-words", {
 
                 var timer = setInterval(() => {
                     this.updateVocab();
-                }, 3000);
+                }, 12000);
 
                 break;
         
