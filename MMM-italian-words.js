@@ -33,7 +33,7 @@ Module.register("MMM-italian-words", {
 
         var p = document.createElement("p");
         p.className = "medium thin bright";
-        p.innerText(this.vocab_str);
+        p.innerText = this.vocab_str;
 
         wrapper.appendChild(p);
 		return wrapper;
@@ -56,6 +56,8 @@ Module.register("MMM-italian-words", {
         switch (notification) {
 
             case "DATA":
+
+                Log.log(payload);
 
                 this.vocab = JSON.parse(payload);
                 this.vocab_length = Object.getOwnPropertySymbols(this.vocab).length;
